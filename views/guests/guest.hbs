@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huésped - {{ guest.firstname }} {{ guest.lastname }}</title>
+</head>
+
+<body>
+    <a href="/">Inicio</a>
+    <a href="/guests">Volver</a>
+
+    {{#if guest}}
+    <h2>Huésped - {{ guest.firstname }} {{ guest.lastname }}</h2>
+    <h4>Adulto: {{ guest.isAdult }}</h4>
+    <h4>Documento de identidad: {{ guest.identityCard }}</h4>
+    <h4>País de origen: {{ guest.country }}</h4>
+
+    {{#if picture}}
+        <img src="uploads/{{picture}}" alt={{name}} width="200" />
+    {{/if}}
+
+    <a href="/guests/{{guest._id}}/edit">
+        <button>Editar</button>
+    </a>
+    <br><br>
+    <form action="/guests/{{guest._id}}?_method=DELETE" method="POST">
+        <button type="submit">Eliminar</button>
+    </form>
+    {{else}}
+    <h3>No existe el huésped.</h3>
+    {{/if}}
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar huésped</title>
+</head>
+
+<body>
+    <h1>Registrar huésped</h1>
+    <a href="/">Inicio</a>
+    <a href="/guests">Volver</a>
+    <form action="/guests/create" method="POST" enctype="multipart/form-data">
+        <label>
+            <p>Nombre</p>
+            <input type="text" name="firstname" placeholder="Nombre">
+        </label>
+
+        <label>
+            <p>Apellido</p>
+            <input type="text" name="lastname" placeholder="Apellido">
+        </label>
+
+        <label>
+            <p>Adulto</p>
+            <input type="checkbox" name="isAdult">
+        </label>
+
+        <label>
+            <p>Documento de identidad</p>
+            <input type="text" name="identityCard" placeholder="Documento de identidad">
+        </label>
+
+        <label>
+            <p>País de origen</p>
+            <input type="text" name="country" placeholder="País">
+        </label>
+
+        <label>
+            <p>Imagen</p>
+            <input type="file" name="picture" accept="image/png" "image/jpg">
+        </label>
+        <br>
+        <br>
+        <button type="submit">Registar</button>
+    </form>
+</body>
+
+</html>

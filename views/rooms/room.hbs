@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitación - {{ room.number }}</title>
+</head>
+
+<body>
+    <a href="/">Inicio</a>
+    <a href="/rooms">Volver</a>
+
+    {{#if room}}
+    <h2>Habitación - {{ room.number }}</h2>
+    <h4>Tipo: {{ room.type }}</h4>
+    <h4>Ocupada: {{ room.isOccupied }}</h4>
+    <h4>Huéspedes: </h4>
+    {{#each guests}}
+                <p>{{this.firstname}} {{this.lastname}}, </p>
+    {{/each}}
+    <a href="/rooms/{{room._id}}/edit">
+        <button>Editar</button>
+    </a>
+    <br><br>
+    <form action="/rooms/{{room._id}}?_method=DELETE" method="POST">
+        <button type="submit">Eliminar</button>
+    </form>
+    <br><br>
+
+    <form action="/rooms/{{room._id}}/add-guest?_method=GET" method="GET">
+        <button type="submit">Añadir huésped</button>
+    </form>
+    {{else}}
+    <h3>No existe la habitación.</h3>
+    {{/if}}
+</body>
+
+</html>

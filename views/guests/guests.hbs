@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>
+        {{ title }}
+    </h1>
+
+    <a href="/auth/login-done">Volver</a>
+    <a href="/guests/create">Registrar huésped</a>
+    <ul>
+        {{#each guests }}
+        <li>
+            <h4>
+                <a href="/guests/{{_id}}">{{ firstname }} {{ lastname }}</a>
+            </h4>
+            <h4>Adulto: {{ isAdult }}</h4>
+            <h4>Documento de identidad: {{ identityCard }}</h4>
+            <h4>País de origen: {{ country }}</h4>
+            {{#if picture}}
+                <img src="/uploads/{{picture}}" alt={{name}} width="200" />
+            {{/if}}
+            
+        </li>
+        <hr>
+        {{/each}}
+    </ul>
+    
+</body>
+</html>

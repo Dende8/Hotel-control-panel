@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar habitación</title>
+</head>
+
+<body>
+    <h1>Editar habitación</h1>
+    <a href="/">Inicio</a>
+    <a href="/rooms">Volver</a>
+
+    {{#if room}}
+    <form action="/rooms/edit?_method=PUT" method="POST">
+        <input type="hidden" name="id" value="{{room._id}}">
+
+        <label>
+            <p>Número de habitación</p>
+            <input value="{{room.number}}" type="number" name="number">
+        </label>
+
+        <label>
+            <p>Tipo</p>
+            <select name="type" placeholder="Tipo">
+                <option value="Individual">Individual</option>
+                <option value="Doble">Doble</option>
+                <option value="Suite">Suite</option>
+            </select>
+        </label>
+        <br><br>
+        <button type="submit">Editar</button>
+    </form>
+    {{else}}
+    <h2>No se encuentra la habitación requerida.</h2>
+    {{/if}}
+</body>
+
+</html>

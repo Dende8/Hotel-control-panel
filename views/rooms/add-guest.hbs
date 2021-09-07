@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir huésped</title>
+</head>
+<body>
+    <h1>Añadir huésped a la habitación {{id}}</h1>
+    <form action="/rooms/{{id}}/add-guest?_method=PUT" method="POST">
+     <label>
+            <p>Huéspedes</p>
+            <select name="guest">
+                {{#each guestList}}
+                    <option value="{{this._id}}">{{this.firstname}} {{this.lastname}}</option>
+                {{/each}}
+            </select>
+        </label>
+        <br><br>
+        <button type="submit">Añadir huésped</button>
+    </form>
+</body>
+</html>

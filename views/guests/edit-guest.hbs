@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar huésped</title>
+</head>
+
+<body>
+    <h1>Editar huésped</h1>
+    <a href="/">Inicio</a>
+    <a href="/guests">Volver</a>
+
+    {{#if guest}}
+    <form action="/guests/edit?_method=PUT" method="POST">
+        <input type="hidden" name="id" value="{{guest._id}}">
+
+        <label>
+            <p>Nombre</p>
+            <input value="{{guest.firstname}}" type="text" name="firstname" placeholder="Nombre">
+        </label>
+
+        <label>
+            <p>Apellido</p>
+            <input value="{{guest.lastname}}" type="text" name="lastname" placeholder="Apellido">
+        </label>
+
+        <label>
+            <p>Adulto</p>
+            <input type="checkbox" checked={{guest.isAdult}} name="isAdult">
+        </label>
+
+        <label>
+            <p>País de origen</p>
+            <input value="{{guest.country}}" type="text" name="country" placeholder="País">
+        </label>
+        <br><br>
+        <button type="submit">Editar</button>
+
+    </form>
+    {{else}}
+    <h2>No se encuentra el huésped requerido.</h2>
+    {{/if}}
+
+</body>
+
+</html>
